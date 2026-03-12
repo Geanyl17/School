@@ -1,0 +1,67 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <title>Blog CMS | Create Post</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% tailwind_css %}
+</head>
+
+<body class="bg-base-200 min-h-screen font-sans">
+
+    <div class="navbar bg-base-100 shadow-sm px-8">
+        <div class="flex-1">
+            <a class="text-xl font-bold italic">Blog<span class="text-primary">CMS</span></a>
+        </div>
+    </div>
+
+    <main class="container mx-auto py-12 px-4">
+        <div class="max-w-2xl mx-auto bg-base-100 p-8 rounded-xl shadow-lg">
+            
+            <header class="mb-8 border-b pb-4">
+                <h1 class="text-3xl font-extrabold">Create New Post</h1>
+                <p class="text-gray-500">Draft your next masterpiece below.</p>
+            </header>
+
+            <form action="#" method="POST" enctype="multipart/form-data" class="space-y-6">
+                {% csrf_token %} <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text font-semibold">Post Title</span>
+                    </label>
+                    <input type="text" name="title" placeholder="Enter a catchy title..." class="input input-bordered w-full focus:input-primary" required />
+                </div>
+
+                <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text font-semibold">Author Name</span>
+                    </label>
+                    <input type="text" name="author" placeholder="Your name or alias" class="input input-bordered w-full focus:input-primary" required />
+                </div>
+
+                <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text font-semibold">Cover Image</span>
+                    </label>
+                    <input type="file" name="image" class="file-input file-input-bordered file-input-primary w-full" />
+                </div>
+
+                <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text font-semibold">Content</span>
+                    </label>
+                    <textarea name="content" class="textarea textarea-bordered h-48 focus:textarea-primary" placeholder="Write your story here..."></textarea>
+                </div>
+
+                <div class="flex justify-end gap-4 pt-4">
+                    <button type="button" class="btn btn-ghost">Save Draft</button>
+                    <button type="submit" class="btn btn-primary px-8">Publish Post</button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>
